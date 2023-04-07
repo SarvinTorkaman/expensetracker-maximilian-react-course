@@ -30,6 +30,7 @@ const NewExpenseForm = (props) => {
         setEnteredTitle("");
         setEnteredAmount("");
         setEnteredDate("");
+        props.onSavedExpense(expenseData)
 
     }
 
