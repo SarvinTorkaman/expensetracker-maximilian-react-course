@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import ExpenseItems from './ExpenseItems';
 import "./Expenses.css";
 import Card from '../UI/Card';
+import ExpensesList from './ExpensesList';
 import ExpensesFilter from './ExpensesFilter';
 export default function Expenses(props){
-    const [selectedYear, setSelectedYear] = useState("2020");
+    const [selectedYear, setSelectedYear] = useState("All");
     // const [expenses,setExpenses]=useState(props.expenses)
 
 
@@ -26,12 +26,13 @@ export default function Expenses(props){
        
     }
 
+
+
 return(
     <div>
         <Card className='expenses'>   
         <ExpensesFilter value={selectedYear} onSelectYear= {selectYearHandler}  />
-        {filteredExpenses.map((expense)=> {return <ExpenseItems key={expense.id} title={expense.title} amount={expense.amount} date={expense.date}/>})}
-
+        <ExpensesList  expensesList= {filteredExpenses}/>
 
 </Card>
 </div>
